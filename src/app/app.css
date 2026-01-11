@@ -1,0 +1,24 @@
+/* Enable Smooth Scrolling for the whole website */
+html {
+    scroll-behavior: smooth;
+  }
+  
+  /* 
+     Since your Navbar is 80px high (h-20), 
+     we tell the browser to stop 80px BEFORE the section starts.
+  */
+  #hero, #about, #education, #projects, #skills, #contact {
+    scroll-margin-top: 80px;
+  }
+  
+  /* Optional: Improve the look of the scrollbar (on Chrome/Safari) */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #6366f1; /* Indigo-600 */
+    border-radius: 10px;
+  }

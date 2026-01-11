@@ -1,0 +1,67 @@
+<section class="py-24 lg:py-40 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+        
+        <!-- Left: Big Text -->
+        <div class="animate-fade-in">
+          <span class="text-indigo-600 font-bold uppercase tracking-[0.3em] text-sm mb-6 block">Get in Touch</span>
+          <h2 class="text-6xl md:text-8xl font-black text-gray-900 tracking-tighter leading-none mb-10">
+            Let's build <br> something <br> <span class="text-indigo-600">great.</span>
+          </h2>
+          
+          <div class="space-y-8">
+            <div>
+              <p class="text-gray-400 font-bold uppercase text-xs tracking-widest mb-2">Email me at</p>
+              <a [href]="'mailto:' + email" class="text-2xl md:text-3xl font-bold text-gray-900 hover:text-indigo-600 transition-colors underline underline-offset-8 decoration-2">
+                {{ email }}
+              </a>
+            </div>
+            <div>
+              <p class="text-gray-400 font-bold uppercase text-xs tracking-widest mb-2">Location</p>
+              <p class="text-2xl font-bold text-gray-900">Phnom Penh, Cambodia</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Right: Social Links -->
+        <div class="bg-gray-50 rounded-[3rem] p-8 md:p-12 border border-gray-100 shadow-2xl shadow-gray-200/50 animate-fade-in">
+          <h3 class="text-2xl font-bold text-gray-900 mb-8">Connect with me on social media</h3>
+          
+          <div class="grid grid-cols-2 gap-4">
+            <!-- We use CSS Variables for real brand colors -->
+            <a *ngFor="let social of socials" [href]="social.url" target="_blank"
+               [style.--brand-color]="social.color"
+               class="flex items-center justify-between p-6 bg-white rounded-2xl border border-gray-100 transition-all duration-300 group
+                      hover:border-[var(--brand-color)] hover:shadow-xl hover:shadow-[var(--brand-color)]/10 hover:-translate-y-1">
+              
+              <div class="flex items-center space-x-4">
+                <!-- SVG LOGO: Changes color on hover -->
+                <svg class="w-6 h-6 fill-gray-400 transition-colors duration-300 group-hover:fill-[var(--brand-color)]" viewBox="0 0 24 24">
+                  <path [attr.d]="social.iconPath" />
+                </svg>
+                <!-- Name: Changes color on hover -->
+                <span class="font-bold text-gray-600 transition-colors duration-300 group-hover:text-[var(--brand-color)]">{{ social.name }}</span>
+              </div>
+              
+              <!-- Arrow: Changes color on hover -->
+              <svg class="w-4 h-4 text-gray-300 transition-all group-hover:text-[var(--brand-color)] group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+  
+          <div class="mt-12 pt-12 border-t border-gray-200">
+            <p class="text-gray-500 mb-6 leading-relaxed italic">
+              "I’m currently available for freelance work and full-time opportunities. If you have a project that needs a clean touch, reach out!"
+            </p>
+            <a [href]="'mailto:' + email" 
+               class="block w-full text-center py-5 bg-gray-900 text-white rounded-2xl font-black text-lg hover:bg-indigo-600 transition-all shadow-xl shadow-gray-200">
+              Start a Conversation
+            </a>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>

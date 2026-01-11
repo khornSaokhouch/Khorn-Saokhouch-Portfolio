@@ -1,0 +1,44 @@
+<nav class="fixed w-full z-50 top-0 bg-white/80 backdrop-blur-lg border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="flex justify-between h-20 items-center">
+        
+        <!-- Brand Name -->
+        <div class="flex-shrink-0">
+          <a href="#hero" class="text-xl font-extrabold tracking-tighter text-gray-900 uppercase">
+            Khorn <span class="text-indigo-600">Saokhouch</span>
+          </a>
+        </div>
+  
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center space-x-10">
+          <a *ngFor="let link of navLinks" [href]="link.href" 
+             class="text-sm font-semibold text-gray-500 hover:text-indigo-600 transition-all duration-300">
+            {{ link.name }}
+          </a>
+          <a href="assets/cv.pdf" target="_blank"
+             class="px-6 py-2.5 rounded-full bg-gray-900 text-white text-sm font-bold hover:bg-indigo-600 transition-all shadow-lg hover:shadow-indigo-200">
+            View CV
+          </a>
+        </div>
+  
+        <!-- Mobile Menu Toggle -->
+        <div class="md:hidden">
+          <button (click)="isMenuOpen = !isMenuOpen" class="p-2 text-gray-900">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path *ngIf="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+              <path *ngIf="isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Mobile Menu Drawer -->
+    <div *ngIf="isMenuOpen" class="md:hidden bg-white border-b border-gray-100 px-8 py-8 space-y-6 shadow-2xl animate-fade-in">
+      <a *ngFor="let link of navLinks" [href]="link.href" (click)="closeMenu()"
+         class="block text-xl font-bold text-gray-800">
+        {{ link.name }}
+      </a>
+      <button class="w-full py-4 bg-indigo-600 text-white rounded-xl font-bold shadow-lg">Download CV</button>
+    </div>
+  </nav>

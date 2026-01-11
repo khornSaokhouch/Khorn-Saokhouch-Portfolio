@@ -1,0 +1,50 @@
+<section class="py-24 lg:py-32 bg-gray-50/50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      
+      <!-- Header -->
+      <div class="text-center mb-20">
+        <span class="text-indigo-600 font-bold uppercase tracking-widest text-sm mb-4 block">Abilities</span>
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 tracking-tight">Technical Stack.</h2>
+        <p class="mt-4 text-gray-500 text-lg max-w-2xl mx-auto">
+          I use a modern and scalable set of technologies to build high-performance web applications.
+        </p>
+      </div>
+  
+      <!-- Skills Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Category Card -->
+        <div *ngFor="let cat of categorizedSkills" 
+             class="bg-white p-8 md:p-10 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-indigo-100/50 hover:-translate-y-2 transition-all duration-500 group">
+          
+          <div class="flex items-center justify-between mb-8">
+            <h3 class="text-2xl font-bold text-gray-900 flex items-center">
+              <span class="w-2 h-8 bg-indigo-600 rounded-full mr-4 group-hover:scale-y-125 transition-transform"></span>
+              {{ cat.category }}
+            </h3>
+            <span class="text-3xl">{{ cat.icon }}</span>
+          </div>
+  
+          <!-- Individual Skills Tags with Images -->
+          <div class="flex flex-wrap gap-3">
+            <div *ngFor="let skill of cat.list" 
+                  class="flex items-center space-x-2 px-4 py-2.5 bg-gray-50 text-gray-700 rounded-2xl text-sm font-bold border border-gray-100 hover:bg-white hover:border-indigo-600 hover:text-indigo-600 hover:shadow-md transition-all cursor-default group/skill">
+              
+              <!-- Skill Image/Icon -->
+              <img [src]="skill.image" [alt]="skill.name" class="w-5 h-5 object-contain group-hover/skill:scale-110 transition-transform" />
+              
+              <span>{{ skill.name }}</span>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  
+      <!-- Bottom Note -->
+      <div class="mt-20 p-8 bg-indigo-600 rounded-[3rem] text-center text-white shadow-2xl shadow-indigo-200">
+        <h4 class="text-xl font-bold mb-2">Looking for a specific technology?</h4>
+        <p class="text-indigo-100 opacity-80 font-medium">I am a fast learner and always excited to pick up new frameworks and tools based on project needs.</p>
+      </div>
+  
+    </div>
+  </section>
