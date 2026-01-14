@@ -6,6 +6,7 @@ import { EducationComponent } from '../education/education';
 import { SkillsComponent } from '../skills/skills';
 import { ProjectsComponent } from '../projects/projects';
 import { ContactComponent } from '../contact/contact';
+import { CertificatesComponent } from '../certificate/certificate';
 
 
 
@@ -22,6 +23,7 @@ import { ContactComponent } from '../contact/contact';
     ProjectsComponent ,
     SkillsComponent,
     ContactComponent ,
+    CertificatesComponent, 
 
   ],
   templateUrl: './home.html',

@@ -1,0 +1,75 @@
+<section class="py-24 lg:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      
+      <!-- Header Section -->
+      <div class="max-w-3xl mb-16 lg:mb-24">
+        <span class="text-indigo-600 font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Validation</span>
+        <h2 class="text-5xl md:text-7xl font-black text-gray-900 tracking-tighter leading-none mb-8">
+          Academic & Professional <span class="text-indigo-600">Honors.</span>
+        </h2>
+      </div>
+  
+      <!-- The Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-24">
+        <div *ngFor="let cert of certificates" class="group relative">
+          
+          <!-- Image Container -->
+          <div class="relative z-0 overflow-hidden rounded-[3rem] bg-gray-100 aspect-[16/10] shadow-sm cursor-pointer" (click)="openModal(cert)">
+            <img [src]="cert.image" [alt]="cert.title"  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          </div>
+  
+          <!-- Floating Info Card -->
+          <div class="relative z-10 -mt-20 ml-6 mr-6 md:ml-12 md:mr-12 p-8 bg-white rounded-[2.5rem] shadow-xl border border-gray-50">
+            <div class="flex flex-col gap-4">
+              <span class="text-indigo-600 font-bold uppercase tracking-widest text-[10px]">{{ cert.issuer }}</span>
+              <h3 class="text-2xl font-bold text-gray-900 leading-tight">{{ cert.title }}</h3>
+              <p class="text-gray-500 text-sm leading-relaxed line-clamp-2">{{ cert.description }}</p>
+  
+              <div class="pt-4 mt-2 border-t border-gray-50 flex justify-between items-center">
+                <button (click)="openModal(cert)" class="text-sm font-black text-gray-900 hover:text-indigo-600 transition-colors uppercase tracking-widest">
+                  View Certificate Details
+                </button>
+                <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- POP-UP MODAL (IMAGE ONLY) -->
+    <div *ngIf="selectedCert" 
+         class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 animate-fade-in">
+      
+      <!-- Background Blur Overlay (Click to close) -->
+      <div (click)="closeModal()" 
+           class="absolute inset-0 bg-black/80 backdrop-blur-2xl transition-all duration-500"></div>
+  
+      <!-- Close Button (Top Right) -->
+      <button (click)="closeModal()" 
+              class="absolute top-8 right-8 z-[110] text-white/50 hover:text-white transition-colors">
+        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+  
+      <!-- Image Wrapper -->
+      <div class="relative z-[105] max-w-5xl w-full flex flex-col items-center justify-center animate-zoom-in">
+        
+        <!-- The Certificate Image -->
+        <img [src]="selectedCert.image" 
+             [alt]="selectedCert.title" 
+             class="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl border border-white/10">
+        
+        <!-- Caption (Optional, helps identify the image) -->
+        <div class="mt-6 text-center">
+          <h3 class="text-white text-xl font-bold tracking-tight">{{ selectedCert.title }}</h3>
+          <p class="text-white/50 text-sm font-medium">{{ selectedCert.issuer }}</p>
+        </div>
+  
+      </div>
+    </div>
+  </section>
